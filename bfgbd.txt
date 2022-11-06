@@ -1,0 +1,37 @@
+app.get("/posts/:postId", function(req, res){
+  const requestedId = req.params.postId;
+
+  Post.findOne({_id: requestedId}, function(err, post){
+    if(!err){
+        res.render("post", {
+          title: post.title,
+          content: post.content
+        });
+      }
+      else{
+        console.log(err);
+      }
+  });
+})
+kanak7:33 PM
+1. make a product model
+2. Make a generalised route for products for each products
+3. and then make the /billing route a post request and pass the product id,
+kanak7:40 PM
+fetch from the db and send to order confirmation ejs in that request
+kanak7:49 PM
+https://bobcares.com/blog/mongodb-error-code-11000/
+kanak7:55 PM
+uuid
+https://stackoverflow.com/questions/51349764/createindex-in-mongoose
+
+
+https://twitter.com/kanak2212/status/1567027007422365698?s=20&t=QIJe-le_y9zBa3T5wa_rrQ
+
+
+https://stackoverflow.com/questions/17223517/mongoose-casterror-cast-to-objectid-failed-for-value-object-object-at-path
+
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Ct7xcZR/Antique-Artifacts.jpg" alt="Antique-Artifacts" border="0"></a>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Z2318tN/Antique-Painting.jpg" alt="Antique-Painting" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>image hosting</a><br />
