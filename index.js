@@ -98,6 +98,9 @@ app.post('/signup', async (req, res) =>{
  });
 
 //login user
+app.get("/prevPap",(req,res)=>{
+  res.render("previousyear");
+})
 app.post('/login', async (req, res) =>{
   const {email, password} = req.body
   const User = await user.findOne({email}).lean()
@@ -139,6 +142,9 @@ app.get("/about1",(req,res)=>{
 })
 app.get("/contact1",(req,res)=>{
   res.render("contact1");
+})
+app.get("/notify",(req,res)=>{
+  res.render("notification");
 })
 //route for logout
 app.get('/logout', (req, res) => {
