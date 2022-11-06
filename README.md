@@ -28,7 +28,7 @@ Web application prototype video and screenshots for reference - 😊
 
 https://drive.google.com/drive/folders/1sD9a87b_2t6GQkWyJqxwEzAt_c2djap-?usp=sharing
 
-#Team Details 
+### Team Details 
 
 Team name - Tech Enthusiast
 Team ID - 654
