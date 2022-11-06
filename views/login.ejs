@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title? title : 'Login System' %></title>
+    <link rel="stylesheet" href="/css/login.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Log in Form</h1>
+      <div class="form_container">
+        <div class="left">
+          <img class="img" src="/ImagesOfLoginSignup/login.jpg" alt="login" />
+        </div>
+        <div class="right">
+          <h2 class="from_heading">Members Log in</h2>
+          <form action="/afterlogin" method="POST">
+            <input
+              type="email"
+              class="input"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              class="input"
+              name="password"
+              placeholder="Password"
+            />
+            <button class="btn">Log In</button>
+          </form>
+          <p class="text">or</p>
+
+          <!-- <button class="google_btn">
+            <img src="/ImagesOfLoginSignup/google.png" alt="google icon" />
+            <span>Sign in with Google</span>
+          </button> -->
+
+          <p class="text">
+            New Here ?
+            <a href="/sign-up"><button>Sign Up</button></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

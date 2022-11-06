@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Pacifico&family=Poppins:wght@200;400;500&family=Roboto:ital,wght@1,100&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- style.css  -->
+    <link rel="stylesheet" href="/css/billing.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <!-- fontawesome cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+      crossorigin="anonymous"
+    />
+
+    <title>Billing page</title>
+  </head>
+
+  <body id="top">
+    <!-- ==============header menu section starts here============== -->
+    <section class="header_menu" id="header_menu">
+      <div class="container-fluid px-0 shadow">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3">
+          <a class="navbar-brand pl-5 pl-small-0" href="/">
+            <img
+              src="/shoes_images/bidlogo.jpg"
+              class="img img-fluid"
+              width="100px"
+              alt="logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                <% if(locals.username){%>
+                <a class="nav-link" id="a_1"
+                  ><%= locals.username? 'Hi, '+ username:'Sign in' %>
+                </a>
+                <%}else{%>
+                <a class="nav-link" href="/login" id="a_1"
+                  ><%= locals.username? 'Hi, '+ username:'Sign in' %>
+                </a>
+                <%}%>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/products" id="a_2">Products</a>
+              </li>
+
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="/Categories" id="a_3">Category</a>
+              </li> -->
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/AddingProducts" id="a_3">Admin</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="shippingDetails" id="a_3"
+                  >shippingDetails</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <% if(locals.username){%>
+                <a class="nav-link" href="/logout" id="a_1"><%= 'Logout' %> </a>
+                <%}%>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <!-- ==============header menu section ends here============== -->
+
+    <!-- ==============Checkout starts here============== -->
+
+    <section class="Checkout py-5 my-5" id="Checkout">
+      <div class="container">
+        <div class="section_title text-center mb-5">
+          <!-- <h1 class="text-capitalize">Checkout</h1> -->
+        </div>
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-8">
+            <!-- Card -->
+            <div class="bg_checkout_1 pb-5">
+              <div class="card-body" id="checkout">
+                <h5 class="m">Billing details</h5>
+
+                <div class="form-group">
+                  <label for="form18">Name :</label>
+                  <span><%= username%></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form18">Email :</label>
+                  <span><%= email %></span>
+                </div>
+              </div>
+            </div>
+            <% sdetails.forEach(function (sdetail) { %>
+            <div class="bg_checkout_1 pb-5">
+              <div class="card-body" id="checkout">
+                <div class="form-group">
+                  <label for="form18">Phone :</label>
+                  <span><%= sdetail.phone%></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form14">Address Line 1 :</label>
+                  <span><%= sdetail.adline1%></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form15">Address Line 2 :</label>
+                  <span><%= sdetail.adline2%></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form17">Town / City :</label>
+                  <span><%= sdetail.city%></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form16">Postcode / ZIP: </label>
+                  <span><%= sdetail.postcode%></span>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                  <div class="w-100">
+                    <label>Country :</label>
+                    <span><%= sdetail.country%></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============Checkout ends here============== -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

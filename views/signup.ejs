@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title? title : 'Login System' %></title>
+    <link rel="stylesheet" href="./css/signup.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Sign up Form</h1>
+      <div class="form_container">
+        <div class="left">
+          <img
+            class="img"
+            src="./ImagesOfLoginSignup/signup.jpg"
+            alt="signup"
+          />
+        </div>
+        <div class="right">
+          <h2 class="from_heading">Create Account</h2>
+          <form action="/signup" method="POST">
+            <input
+              type="text"
+              class="input"
+              name="username"
+              placeholder="Username"
+            />
+            <input
+              type="email"
+              class="input"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              class="input"
+              name="password"
+              placeholder="Password"
+            />
+            <button class="btn">Sign Up</button>
+          </form>
+          <!-- <p class="text">or</p>
+          <button class="google_btn">
+            <img src="./ImagesOfLoginSignup/google.png" alt="google icon" />
+            <span>Sign up with Google</span>
+          </button>
+          <p class="text"> -->
+            Already Have Account ?
+            <a href="/login"><button>Log In</button></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
